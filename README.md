@@ -1,10 +1,11 @@
 # PhoneGap NFC Writer Demo
 
-Simple webapp writes NDEF Mime Messages to NFC tags
+Simple web app that writes a NDEF Message containing one Mime Media Record to a NFC tag. 
 
 Requires 
- * Google Nexus S phone
- * PhoneGap 0.9.6+
- * phonegap-nfc plugin
+
+* Google Nexus S phone
+* PhoneGap 0.9.6+
+* phonegap-nfc plugin
 
 See [phonegap-nfc](https://github.com/chariotsolutions/phonegap-nfc) for more info

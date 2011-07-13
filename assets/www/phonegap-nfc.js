@@ -119,7 +119,7 @@ var Ndef = {
     
 };
 
-var NdefPlugin = {
+navigator.nfc = {
 
     addMimeTypeListener: function (mime_type, callback, win, fail) {
         document.addEventListener("ndef-mime", callback, false);    
@@ -139,6 +139,10 @@ var NdefPlugin = {
     writeTag: function (ndefMessage, win, fail) {
       PhoneGap.exec(win, fail, "NdefPlugin", "writeTag", [ndefMessage]);
     },
+
+    p2p: function (ndefMessage, win, fail) {
+      PhoneGap.exec(win, fail, "NdefPlugin", "p2p", [ndefMessage]);
+    },
         
     // Java is responsible for calling this method
     // Type is ndef-mime, ndef, or ndef-unformatted
@@ -149,17 +153,3 @@ var NdefPlugin = {
         document.dispatchEvent(e);        
     }     
 };
-
-/**
- * <ul>
- * <li>Register the NFC Javascript plugin.</li>
- * <li>Also register native call which will be called when this plugin runs</li>
- * </ul>
- */
-PhoneGap.addConstructor(function() { 
-  // Register the javascript plugin with PhoneGap
-  PhoneGap.addPlugin('NdefPlugin', NdefPlugin);
-
-  // Register the native class of plugin with PhoneGap
-  navigator.app.addService("NdefPlugin", "com.chariotsolutions.nfc.plugin.NdefPlugin"); 
-});

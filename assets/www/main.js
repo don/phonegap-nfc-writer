@@ -8,7 +8,7 @@ function onNfc(nfcEvent) {
     payload = document.forms[0].elements["payload"].value,
     record = Ndef.mimeMediaRecord(mimeType, Ndef.stringToBytes(payload));
 
-    window.plugins.NdefPlugin.writeTag(
+  navigator.nfc.writeTag(
         [record], 
         function () { 
             navigator.notification.vibrate(100);
@@ -27,9 +27,9 @@ var ready = function () {
     alert('Failed to register NFC Listener');
   }
   
-  window.plugins.NdefPlugin.addNdefListener(onNfc, win, fail);          
+  navigator.nfc.addNdefListener(onNfc, win, fail);          
 };
 
 // deviceready is being called before the plugins finish initializing
 // add setTimeout as a kludge until the real problem is fixed
-document.addEventListener('deviceready', function () { window.setTimeout(ready, 500); }, false);
+document.addEventListener('deviceready', ready, false);

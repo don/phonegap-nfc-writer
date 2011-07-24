@@ -12,9 +12,11 @@ function onNfc(nfcEvent) {
         [record], 
         function () { 
             navigator.notification.vibrate(100);
-        }, function () {
+        }, 
+        function () {
             alert("Failed to write message to tag.");
-        });   
+        }
+  );   
 }
 
 var ready = function () {
@@ -30,6 +32,4 @@ var ready = function () {
   navigator.nfc.addNdefListener(onNfc, win, fail);          
 };
 
-// deviceready is being called before the plugins finish initializing
-// add setTimeout as a kludge until the real problem is fixed
 document.addEventListener('deviceready', ready, false);

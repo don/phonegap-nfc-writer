@@ -10,7 +10,8 @@ function onNfc(nfcEvent) {
 
   navigator.nfc.writeTag(
         [record], 
-        function () { 
+        function () {
+            navigator.toast.showShort("Wrote data to tag.");
             navigator.notification.vibrate(100);
         }, 
         function (reason) {

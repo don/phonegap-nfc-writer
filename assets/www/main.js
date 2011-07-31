@@ -1,7 +1,7 @@
 /*global NdefPlugin, Ndef */
 
 function onNfc(nfcEvent) {
-  console.log(JSON.stringify(nfcEvent.tagData));
+  console.log(JSON.stringify(nfcEvent.tag));
   // ignore what's on the tag for now, just overwrite
   
   var mimeType = document.forms[0].elements["mimeType"].value,
@@ -37,6 +37,14 @@ document.addEventListener('deviceready', ready, false);
 
 var data = [
     {
+        mimeType: 'text/plain',
+        payload: 'Hello PhoneGap'
+    },
+    {
+        mimeType: 'text/pg',
+        payload: 'Hello PhoneGap'
+    },
+    {
         mimeType: 'text/x-vCard',
         payload: 'BEGIN:VCARD\n' +
             'VERSION:2.1\n' +
@@ -49,12 +57,20 @@ var data = [
             'END:VCARD'
     },
     {
-        mimeType: 'game/rockpaperscissors',
-        payload: 'Rock'
+        mimeType: 'text/x-vCard',
+        payload: 'BEGIN:VCARD\n' +
+            'VERSION:2.1\n' +
+            'N:Griffin;Kevin;;;\n' +
+            'FN:Kevin Griffin\n' +
+            'ORG:Chariot Solutions;\n' +
+            'URL:http://chariotsolutions.com\n' +
+            'TEL;WORK:215-358-1780\n' +
+            'EMAIL;WORK:kgriffin@chariotsolutions.com\n' +
+            'END:VCARD'
     },
     {
-        mimeType: 'text/pg',
-        payload: 'Hello PhoneGap'
+        mimeType: 'game/rockpaperscissors',
+        payload: 'Rock'
     },
     {
         mimeType: '',

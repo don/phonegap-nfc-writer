@@ -1,7 +1,6 @@
 /*global NdefPlugin, Ndef */
 
-function onNfc(nfcEvent) {
-  console.log(JSON.stringify(nfcEvent.tag));
+function writeTag(nfcEvent) {
   // ignore what's on the tag for now, just overwrite
   
   var mimeType = document.forms[0].elements["mimeType"].value,
@@ -30,7 +29,7 @@ var ready = function () {
     alert('Failed to register NFC Listener');
   }
   
-  navigator.nfc.addNdefListener(onNfc, win, fail);          
+  navigator.nfc.addNdefListener(writeTag, win, fail);
 };
 
 document.addEventListener('deviceready', ready, false);

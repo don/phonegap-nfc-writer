@@ -17,5 +17,5 @@
     <plugin name="FileTransfer" value="com.phonegap.FileTransfer"/>
     <plugin name="Capture" value="com.phonegap.Capture"/>
     <plugin name="Toasty" value="com.chariotsolutions.toast.plugin.ToastPlugin"/>
-    <plugin name="NdefPlugin" value="com.chariotsolutions.nfc.plugin.NdefPlugin"/>
+    <plugin name="NFCPlugin" value="com.chariotsolutions.nfc.plugin.NFCPlugin"/>
 </plugins>

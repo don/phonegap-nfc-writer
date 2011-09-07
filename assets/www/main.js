@@ -5,7 +5,7 @@ function writeTag(nfcEvent) {
   
   var mimeType = document.forms[0].elements["mimeType"].value,
     payload = document.forms[0].elements["payload"].value,
-    record = Ndef.mimeMediaRecord(mimeType, Ndef.stringToBytes(payload));
+    record = Ndef.mimeMediaRecord(mimeType, navigator.nfc.util.stringToBytes(payload));
 
   navigator.nfc.writeTag(
         [record], 

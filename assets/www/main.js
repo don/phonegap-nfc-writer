@@ -5,9 +5,9 @@ function writeTag(nfcEvent) {
   
   var mimeType = document.forms[0].elements["mimeType"].value,
     payload = document.forms[0].elements["payload"].value,
-    record = Ndef.mimeMediaRecord(mimeType, Ndef.stringToBytes(payload));
+    record = ndef.mimeMediaRecord(mimeType, nfc.stringToBytes(payload));
 
-  navigator.nfc.writeTag(
+  nfc.write(
         [record], 
         function () {
             navigator.toast.showShort("Wrote data to tag.");
@@ -29,7 +29,7 @@ var ready = function () {
     alert('Failed to register NFC Listener');
   }
   
-  navigator.nfc.addNdefListener(writeTag, win, fail);
+  nfc.addNdefListener(writeTag, win, fail);
 };
 
 document.addEventListener('deviceready', ready, false);

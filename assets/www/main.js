@@ -30,6 +30,9 @@ var ready = function () {
   }
   
   nfc.addNdefListener(writeTag, win, fail);
+
+  document.addEventListener("menubutton", showSampleData, false);
+
 };
 
 document.addEventListener('deviceready', ready, false);
@@ -91,6 +94,3 @@ function showSampleData() {
     mimeTypeField.value = record.mimeType;
     payloadField.value = record.payload;    
 }
-
-document.addEventListener("menubutton", showSampleData, false);
-

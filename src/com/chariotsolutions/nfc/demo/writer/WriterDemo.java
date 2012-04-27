@@ -1,6 +1,6 @@
 package com.chariotsolutions.nfc.demo.writer;
 
-import com.phonegap.*;
+import org.apache.cordova.*;
 import android.os.Bundle;
 
 public class WriterDemo extends DroidGap {

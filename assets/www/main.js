@@ -1,8 +1,10 @@
 /*global NdefPlugin, Ndef */
 
+var toast = cordova.require('toast');
+
 function writeTag(nfcEvent) {
   // ignore what's on the tag for now, just overwrite
-  
+    
   var mimeType = document.forms[0].elements["mimeType"].value,
     payload = document.forms[0].elements["payload"].value,
     record = ndef.mimeMediaRecord(mimeType, nfc.stringToBytes(payload));
@@ -10,7 +12,7 @@ function writeTag(nfcEvent) {
   nfc.write(
         [record], 
         function () {
-            navigator.toast.showShort("Wrote data to tag.");
+            toast.showShort("Wrote data to tag.");
             navigator.notification.vibrate(100);
         }, 
         function (reason) {

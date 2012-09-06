@@ -31,7 +31,7 @@ var ready = function () {
     alert('Failed to register NFC Listener');
   }
   
-  nfc.addNdefListener(writeTag, win, fail);
+  nfc.addTagDiscoveredListener(writeTag, win, fail);
 
   document.addEventListener("menubutton", showSampleData, false);
 

@@ -6,7 +6,7 @@ Simple web app that writes an NDEF Message containing one Mime Media Record to a
 
 * Android Phone with NFC
 * [Android SDK](http://developer.android.com/sdk/index.html)
-* PhoneGap 1.6.1 (included in project)
+* PhoneGap 2.2.0 (included in project)
 * phonegap-nfc plugin (included in project)
 
 ## Building

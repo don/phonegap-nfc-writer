@@ -1,7 +1,5 @@
 /*global NdefPlugin, Ndef */
 
-//var toast = cordova.require('toast');
-
 function writeTag(nfcEvent) {
   // ignore what's on the tag for now, just overwrite
     
@@ -33,7 +31,8 @@ var ready = function () {
   
   nfc.addTagDiscoveredListener(writeTag, win, fail);
 
-  document.addEventListener("menubutton", showSampleData, false);
+  document.addEventListener("volumeupbutton", showSampleData, false);
+  document.addEventListener("volumedownbutton", showSampleData, false);
 
 };
 
@@ -41,11 +40,11 @@ document.addEventListener('deviceready', ready, false);
 
 var data = [
     {
-        mimeType: 'text/plain',
+        mimeType: 'text/pg',
         payload: 'Hello PhoneGap'
     },
     {
-        mimeType: 'text/pg',
+        mimeType: 'text/plain',
         payload: 'Hello PhoneGap'
     },
     {
@@ -83,16 +82,24 @@ var data = [
 ];
 
 var index = 0;
-function showSampleData() {
+function showSampleData(e) {
+
     var mimeTypeField = document.forms[0].elements["mimeType"],
-      payloadField = document.forms[0].elements["payload"],
-      record = data[index];
-    
-    index++;
-    if (index >= data.length) {
-        index = 0;
+      payloadField = document.forms[0].elements["payload"];
+
+    if (e.type === 'volumedownbutton') {
+        index--;
+    } else {
+        index++;
     }
     
+    if (index >= data.length) {
+        index = 0;
+    } else if (index < 0) {
+        index = data.length - 1;
+    }
+
+    var record = data[index];
     mimeTypeField.value = record.mimeType;
     payloadField.value = record.payload;    
 }

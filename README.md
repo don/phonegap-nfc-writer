@@ -10,8 +10,9 @@ Simple web app that writes an NDEF Message containing one Mime Media Record to a
 
 ## Building
 
-    $ git clone https://github.com/don/phonegap-nfc-writer.git
+	$ git clone https://github.com/don/phonegap-nfc-writer.git
 	$ cd phonegap-nfc-writer
+	$ cordova platform add android
 	$ cordova run -device
 
 See [phonegap-nfc](https://github.com/chariotsolutions/phonegap-nfc) for more info

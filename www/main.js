@@ -1,6 +1,6 @@
 /*global NdefPlugin, Ndef */
 
-var toast = cordova.require('toast');
+//var toast = cordova.require('toast');
 
 function writeTag(nfcEvent) {
   // ignore what's on the tag for now, just overwrite
@@ -12,7 +12,7 @@ function writeTag(nfcEvent) {
   nfc.write(
         [record], 
         function () {
-            toast.showShort("Wrote data to tag.");
+            window.plugins.toast.showShortBottom("Wrote data to tag.");
             navigator.notification.vibrate(100);
         }, 
         function (reason) {

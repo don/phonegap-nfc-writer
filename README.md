@@ -5,14 +5,13 @@ Simple web app that writes an NDEF Message containing one Mime Media Record to a
 ## Requires 
 
 * Android Phone with NFC
+* [Apache Cordova](https://cordova.apache.org) or [PhoneGap](http://phonegap.com)
 * [Android SDK](http://developer.android.com/sdk/index.html)
-* PhoneGap 2.2.0 (included in project)
-* phonegap-nfc plugin (included in project)
 
 ## Building
 
-Use ant to build the code and install on your phone
-
-	$ ant debug install
+    $ git clone https://github.com/don/phonegap-nfc-writer.git
+	$ cd phonegap-nfc-writer
+	$ cordova run -device
 
 See [phonegap-nfc](https://github.com/chariotsolutions/phonegap-nfc) for more info

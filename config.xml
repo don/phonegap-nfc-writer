@@ -2,7 +2,7 @@
 <widget id="com.chariotsolutions.nfc.demo.writer" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>NFC Writer</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Simple web app that writes an NDEF Message containing one Mime Media Record to a NFC tag.
     </description>
     <author href="https://github.com/don">
         Don Coleman
